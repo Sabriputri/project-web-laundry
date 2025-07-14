@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laundry Ceria</title>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Rubik:wght@400;500;600;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="top">
+  <header class="header" data-header>
+    <div class="container">
+      <h1>
+        <a href="#" class="logo" style="color: black;">ErSa</a>
+      </h1>
+      <nav class="navbar" data-navbar>
+        <ul class="navbar-list">
+          <li class="nav-item">
+            <a href="#beranda" class="navbar-link" data-nav-link>Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#tentang" class="navbar-link" data-nav-link>Tentang Kami</a>
+          </li>
+          <li class="nav-item">
+            <a href="#kontak" class="navbar-link" data-nav-link>Kontak</a>
+          </li>
+          <li class="nav-item">
+            <a href="#menu" class="navbar-link" data-nav-link>My Laundry</a>
+          </li>
+          <li class="nav-item">
+            <i class="bi bi-brightness-high-fill" id="toggleDark" style="cursor: pointer; transform: translate(-50%, -50%); font-size: 25px;"></i>
+          </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-btn-group">
+        <button class="btn btn-hover"><a href="assets/login.html">Login</a></button>
+        <button class="nav-toggle-btn" aria-label="Toggle Menu" data-menu-toggle-btn>
+          <span class="line top"></span>
+          <span class="line middle"></span>
+          <span class="line bottom"></span>
+        </button>
+        <style>
+ 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: gray;
+}
+        </style>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="hero" id="beranda">
+  <div class="slider-background">
+    <div class="slide active" style="background-image: url('https://static.wixstatic.com/media/8784ce_c38226f8f4ba4fc5b9c46af48c775672~mv2.jpg');"></div>
+    <div class="slide" style="background-image: url('https://smartlink.id/wp-content/uploads/2023/01/tips-usaha-laundry.jpeg');"></div>
+    <div class="slide" style="background-image: url('https://cdn.idntimes.com/content-images/community/2024/08/editorial-photography-modern-laundry-shop-with-horizontal-angle-counter-display-1166177-8340-d630eab48a210d8c026e740baf5e9730-6ee5420c38191b4e2aac881e88d683ec_600x400.jpg');"></div>
+  </div>
+
+  <div class="dots">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <p class="hero-subtitle">Laundry Ceria</p>
+      <h2 class="h1 hero-title">Solusi Pakaian Bersih, Wangi, dan Rapi!</h2>
+      <p class="hero-text">Layanan laundry profesional dengan antar jemput yang praktis dan terpercaya.</p>
+      <button class="btn">Pesan Sekarang</button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .slider-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    opacity: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 3;
+  }
+</style>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+  let currentIndex = 0;
+  let slideInterval = setInterval(nextSlide, 1500);
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+      dots[i].classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    let nextIndex = (currentIndex + 1) % slides.length;
+    showSlide(nextIndex);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(slideInterval);
+      showSlide(parseInt(dot.getAttribute('data-slide')));
+      slideInterval = setInterval(nextSlide, 1500);
+    });
+  });
+</script>
+
+
+
+      <section class="section section-divider white promo">
+        <div class="container">
+          <ul class="promo-list has-scrollbar">
+            <li class="promo-item">
+  <div class="promo-card">
+    <h3 class="h3 card-title">Steam Ironing</h3>
+    <p class="card-text">
+      Layanan setrika uap profesional untuk pakaian lebih rapi, bebas kusut, dan aman untuk semua jenis bahan.
+    </p>
+    <img src="assets/images/streamironing.png" width="300" height="300" loading="lazy"
+      class="w-100 card-banner">
+  </div>
+</li>
+
+
+            <li class="promo-item">
+  <div class="promo-card">
+    <h3 class="h3 card-title">Wash and Fold</h3>
+    <p class="card-text">
+      Layanan cuci dan lipat profesional untuk pakaian bersih, wangi, dan siap disimpan tanpa repot.
+    </p>
+    <img src="assets/images/washfold.png" width="300" height="300" loading="lazy"
+      class="w-100 card-banner">
+  </div>
+</li>
+
+
+            <li class="promo-item">
+  <div class="promo-card">
+    <h3 class="h3 card-title">Dry Clean</h3>
+    <p class="card-text">
+      Layanan dry clean profesional untuk pakaian berbahan khusus agar tetap bersih, wangi, dan terawat.
+    </p>
+    <img src="assets/images/dryclean.png" width="300" height="300" loading="lazy"
+      class="w-100 card-banner">
+  </div>
+</li>
+
+
+           <li class="promo-item">
+  <div class="promo-card">
+    <h3 class="h3 card-title">Layanan Delivery</h3>
+    <p class="card-text">
+      Nikmati kemudahan laundry tanpa repot dengan layanan antar jemput pakaian langsung ke rumah Anda.
+    </p>
+    <img src="assets/images/express.png" width="300" height="300" loading="lazy"
+      class="w-100 card-banner">
+  </div>
+</li>
+
+           
+          </ul>
+        </div>
+      </section>
+
+     <section class="section section-divider gray about" id="tentang">
+  <div class="container">
+    <div class="about-banner">
+      <img src="https://smartlink.id/wp-content/uploads/2024/02/logo-usaha-laundry.jpg" width="509" height="459" loading="lazy"
+        class="w-100 about-img">
+    </div>
+    <div class="about-content">
+      <h2 class="h2 section-title">
+        Layanan Laundry Terbaik dan Terlengkap
+        <span class="span">di Kota Anda!</span>
+      </h2>
+      <p class="section-text">
+        "Laundry Ceria menghadirkan solusi praktis untuk semua kebutuhan perawatan pakaian Anda. Kami menawarkan layanan cuci, setrika, dry clean, dan antar jemput dengan harga terjangkau. Dengan tenaga profesional dan peralatan modern, kami pastikan setiap pakaian bersih, wangi, dan rapi. Nikmati kemudahan tanpa repot, biarkan kami yang urus cucian Anda agar Anda punya lebih banyak waktu untuk hal lain."
+      </p>
+      <button style="margin-top: 50px;" class="btn btn-hover">Pesan Sekarang</button>
+    </div>
+  </div>
+</section>
+
+
+ <section class="section food-menu" id="menu">
+  <div class="container" style="position: relative;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 class="h2 section-title">
+        Layanan Laundry <span class="span">ErSa</span>
+      </h2>
+      <div style="position: relative;">
+        <button id="cart-btn" style="font-size: 24px; background: none; border: none; cursor: pointer;">
+          🛒 <span id="cart-count" style="background:red;color:#fff;border-radius:50%;padding:2px 6px;font-size:12px;position:absolute;top:-8px;right:-10px;">0</span>
+        </button>
+        <div id="cart-collapse" style="
+          display: none;
+          position: absolute;
+          top: 35px;
+          right: 0;
+          width: 300px;
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+          padding: 10px;
+          z-index: 9999;
+        ">
+          <h3>Keranjang Anda</h3>
+          <ul id="cart-list" style="list-style: none; padding:0; margin:0; max-height:200px; overflow-y:auto;"></ul>
+          <p><strong>Total: Rp. <span id="cart-total">0</span></strong></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="section-text">
+      Unleash the Freshness with Our Signature Services.
+    </p>
+
+    <ul class="fiter-list">
+      <li><button class="filter-btn active" data-filter="all">Semua</button></li>
+      <li><button class="filter-btn" data-filter="Reguler">Reguler</button></li>
+      <li><button class="filter-btn" data-filter="Premium">Premium</button></li>
+      <li><button class="filter-btn" data-filter="Cepat">Cepat</button></li>
+      <li><button class="filter-btn" data-filter="Tambahan">Tambahan</button></li>
+    </ul>
+
+    <ul class="food-menu-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+      <li class="food-menu-item" data-category="Reguler" data-title="Cuci Setrika Reguler" data-price="8000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Cuci Setrika Reguler</h3>
+          <p class="section-text">Pakaian dicuci bersih, disetrika rapi, harum.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 8.000 / kg</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" data-category="Reguler" data-title="Cuci Karpet / Gorden" data-price="30000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Cuci Karpet / Gorden</h3>
+          <p class="section-text">Cuci karpet, gorden, tersedia layanan bongkar pasang.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 30.000 / m²</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" data-category="Reguler" data-title="Cuci Bedcover" data-price="20000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Cuci Bedcover</h3>
+          <p class="section-text">Bedcover, comforter, selimut dicuci mesin besar.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 20.000 / item</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" data-category="Premium" data-title="Dry Clean" data-price="30000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Dry Clean</h3>
+          <p class="section-text">Jas, kebaya, batik bahan khusus dicuci teknik profesional.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 30.000 / item</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" data-category="Premium" data-title="Cuci Sepatu / Tas" data-price="25000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Cuci Sepatu / Tas</h3>
+          <p class="section-text">Sepatu, tas kulit/kanvas dibersihkan aman dan rapi.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 25.000 / pasang</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" data-category="Premium" data-title="Hand Wash" data-price="15000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Hand Wash</h3>
+          <p class="section-text">Pakaian bahan sensitif dicuci manual agar tetap awet.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 15.000 / item</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <li class="food-menu-item" style="width: 400px;" data-category="Cepat" data-title="Express Service" data-price="15000">
+        <div class="food-menu-card">
+          <h3 class="h3 card-title">Express Service</h3>
+          <p class="section-text">Cuci setrika selesai 6 jam, tetap rapi dan wangi.</p>
+          <div class="price-wrapper">
+            <p class="price-text">Harga:</p>
+            <data class="price">Rp. 15.000 / kg</data>
+          </div>
+          <button class="select-btn">Select Service</button>
+        </div>
+      </li>
+
+      <!-- Tambah layanan lain kalau mau -->
+    </ul>
+  </div>
+</section>
+
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.food-menu-item');
+  const selectBtns = document.querySelectorAll('.select-btn');
+  const cartBtn = document.getElementById('cart-btn');
+  const cartCount = document.getElementById('cart-count');
+  const cartList = document.getElementById('cart-list');
+  const cartCollapse = document.getElementById('cart-collapse');
+  const cartTotal = document.getElementById('cart-total');
+
+  let cart = [];
+
+  // Filter
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+      items.forEach(item => {
+        const category = item.getAttribute('data-category');
+        item.style.display = (filter === 'all' || filter === category) ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Select Service
+  selectBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const item = e.target.closest('.food-menu-item');
+      const title = item.getAttribute('data-title');
+      const price = parseInt(item.getAttribute('data-price'));
+      cart.push({ title, price });
+      updateCart();
+    });
+  });
+
+  function updateCart() {
+    cartCount.innerText = cart.length;
+    cartList.innerHTML = '';
+    let total = 0;
+    cart.forEach(service => {
+      const li = document.createElement('li');
+      li.innerText = `${service.title} - Rp. ${service.price.toLocaleString()}`;
+      cartList.appendChild(li);
+      total += service.price;
+    });
+    cartTotal.innerText = total.toLocaleString();
+  }
+
+  // Toggle cart
+  cartBtn.addEventListener('click', () => {
+    cartCollapse.style.display = (cartCollapse.style.display === 'none' || cartCollapse.style.display === '') ? 'block' : 'none';
+  });
+</script>
+
+
+      <section class="section section-divider gray delivery">
+  <div class="container">
+    <div class="delivery-content">
+      <h2 class="h2 section-title">
+        Layanan Laundry Cepat, Antar Jemput Sampai Rumah!
+      </h2>
+      <p class="section-text">
+        Laundry Ceria siap membantu Anda dengan layanan antar jemput pakaian, sehingga Anda tak perlu repot keluar rumah. Bersih, wangi, dan rapi sampai ke tangan Anda dengan harga terjangkau.
+      </p>
+      <button class="btn btn-hover">Pesan Sekarang</button>
+    </div>
+
+    <figure class="delivery-banner">
+      <img src="assets/images/express.png" width="500" height="602" loading="lazy" alt="laundry delivery">
+    </figure>
+  </div>
+</section>
+
+
+
+      <section class="section section-divider white testi">
+  <div class="container">
+    <p class="section-subtitle">Testimonials</p>
+    <h2 class="h2 section-title">
+      Riview Sang Pelanggan
+    </h2>
+
+    <ul class="testi-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; list-style: none; padding: 0; margin: 0;">
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Kerta Wijaya</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Pelayanan sangat cepat dan hasil cucinya rapi."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Muhammad Ilham</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Harga terjangkau, kualitas oke."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Ramadhan</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Pakaian wangi dan bebas noda."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Siti Aisyah</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Cucian selalu selesai tepat waktu."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Budi Santoso</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Jasa dry clean sangat memuaskan."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Lestari Dewi</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Pelayanan ramah dan profesional."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Andi Saputra</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Hasil setrikaannya halus banget!"
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Nurul Huda</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Pakaian selalu dikemas rapi."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Dian Pratama</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Laundry langganan terbaik di kota ini."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Farhan Syahputra</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Layanan cepat, pakaian wangi segar."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Yuni Kartika</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Selalu puas dengan hasil laundry di sini."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+      <li class="testi-item">
+        <div class="testi-card">
+          <div class="profile-wrapper">
+            <h3 class="h4 testi-name">Agus Setiawan</h3>
+          </div>
+          <blockquote class="testi-text">
+            "Pakaian licin dan rapi tanpa kusut."
+          </blockquote>
+          <div class="rating-wrapper">
+            <ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon><ion-icon name="star"></ion-icon>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+      <section class="section section-divider white blog" id="blog">
+  <div class="container">
+    <p class="section-subtitle">Postingan Blog</p>
+    <h2 class="h2 section-title">
+      Berita tentang Laundry
+    </h2>
+    <ul class="blog-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; list-style: none; padding: 0;">
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://cdn.grid.id/crop/0x0:0x0/360x240/photo/2023/08/15/mencuci-pakaian-1-1jpg-20230815103420.jpg" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Tips</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 29 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Putri Metekohy</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Cara Merawat Pakaian Agar Tahan Lama Setelah Dicuci</a>
+            </h3>
+            <p class="card-text">
+              Perawatan pakaian setelah laundry sering diabaikan. Padahal, langkah sederhana dapat menjaga kualitas bahan dan warna pakaian agar tetap awet...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMgLG9E1QJW8apG5ZlF1AboU0JK5ev0OyeUQ&s" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Info</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 28 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Budi Santoso</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Jenis Bahan Pakaian yang Perlu Perlakuan Khusus</a>
+            </h3>
+            <p class="card-text">
+              Tidak semua pakaian cocok dicuci dengan cara yang sama. Kenali jenis bahan yang harus hati-hati saat dicuci agar tidak cepat rusak...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://blog.join-eby.com/wp-content/uploads/2021/08/shutterstock_1833723724-scaled.jpg" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Tips</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 27 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Nurul Huda</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Tips Melipat Pakaian Agar Hemat Tempat</a>
+            </h3>
+            <p class="card-text">
+              Melipat pakaian dengan teknik yang tepat tidak hanya rapi tapi juga menghemat tempat di lemari Anda. Yuk simak caranya...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://media.tampang.com/tm_images/article/202407/setrika-1jpgnhjq44yndcm3i9nx.jpg" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Tutorial</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 26 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Siti Aisyah</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Cara Menyetrika Cepat dan Rapi</a>
+            </h3>
+            <p class="card-text">
+              Setrika sering jadi momok karena memakan waktu. Ikuti langkah praktis agar hasil setrikaan rapi dalam waktu singkat...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://cdn.rri.co.id/berita/Cirebon/o/1716283293974-hipwee-cats-8-750x422/bd4rd7v26pok0sg.jpeg" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Perawatan</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 25 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Dian Pratama</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Pentingnya Membersihkan Mesin Cuci Secara Berkala</a>
+            </h3>
+            <p class="card-text">
+              Mesin cuci yang bersih adalah kunci hasil cucian yang maksimal. Simak bagaimana dan kapan membersihkannya...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="blog-card">
+          <div class="card-banner">
+            <img src="https://www.pinhome.id/blog/wp-content/uploads/2021/08/Laundry-Room-Design-Inspiration-tn.jpeg" width="600" height="390" loading="lazy" class="w-100">
+            <div class="badge">Inspirasi</div>
+          </div>
+          <div class="card-content">
+            <div class="card-meta-wrapper">
+              <a href="#" class="card-meta-link">
+                <ion-icon name="calendar-outline"></ion-icon>
+                <time class="meta-info">Juni, 24 2025</time>
+              </a>
+              <a href="#" class="card-meta-link">
+                <ion-icon name="person-outline"></ion-icon>
+                <p class="meta-info">Andi Saputra</p>
+              </a>
+            </div>
+            <h3 class="h3">
+              <a href="#" class="card-title">Desain Laundry Room Minimalis yang Fungsional</a>
+            </h3>
+            <p class="card-text">
+              Ingin ruang laundry yang rapi dan enak dilihat? Lihat ide desain minimalis yang hemat ruang dan fungsional berikut ini...
+            </p>
+            <a href="#" class="btn-link">
+              <span>Baca Selengkapnya</span>
+              <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</section>
+
+    </article>
+  </main>
+
+  <footer class="footer" id="kontak">
+    <div class="footer-top">
+      <div class="container">
+<div class="footer-brand">
+  <a href="" class="logo">Laundry Ceria<span class="span">.</span></a>
+  <p class="footer-text">
+    Laundry Ceria hadir untuk membantu Anda mendapatkan pakaian bersih, wangi, dan rapi tanpa repot. Layanan profesional kami siap melayani dengan cepat, aman, dan harga terjangkau.
+  </p>
+</div>
+
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Kontak Saya</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">+62 949-503-349-239</p>
+          </li>
+
+          <li>
+            <p class="footer-list-item">LaundryCeria@gmail.com</p>
+          </li>
+
+          <li>
+            <address class="footer-list-item">Jl Bejing, No:29, Serengseng, DKI Jakarta</address>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+          <li>
+            <p class="footer-list-title">Laundry Ceria</p>
+          </li>
+          <li>
+            <p class="footer-list-item">Senin-Jumat: 07:00-22:00</p>
+          </li>
+          <li>
+            <p class="footer-list-item">Sabtu-Minggu: 12:00-22:00</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p class="copyright-text">
+          &copy; 2025 <a href="#" class="copyright-link">Laundry Ceria</a> ErSa.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js" defer></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+<script>
+  const toggle = document.getElementById('toggleDark');
+  const te = document.querySelector('header')
+  const body = document.querySelector('body')
+
+  toggle.addEventListener('click', function() {
+    this.classList.toggle('bi-moon');
+    if(this.classList.toggle('bi-brightness-high-fill')){
+      
+      body.style.background = 'white';
+      body.style.color = 'black';
+      body.style.transition = '2s';
+    } else {
+     
+      body.style.background = 'black';
+      body.style.color = 'white';
+      body.style.transition = '2s';
+    }
+  })
+</script>
+</html>
